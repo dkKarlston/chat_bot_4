@@ -1,0 +1,89 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_name
+  - ask_abilities
+  - ask_time
+  - ask_date
+  - ask_fact
+  - ask_weather
+  - search_web
+  - calculate
+  - mood_positive
+  - mood_negative
+  - mood_neutral
+  - inform
+
+entities:
+  - city
+  - query
+  - expression
+  - category
+
+slots:
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+  query:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: query
+  expression:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: expression
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: category
+
+responses:
+  utter_greet:
+    - text: "Привет-привет! 😊 Как твои дела?"
+    - text: "Здравствуйте! Чем могу помочь сегодня?"
+    - text: "Йо! Рад тебя видеть!"
+
+  utter_iamabot:
+    - text: "Я всего лишь бот, но я стараюсь помочь!"
+    - text: "Я — программа, но у меня есть характер! 😊"
+
+  utter_goodbye:
+    - text: "До встречи! Надеюсь, скоро снова поболтаем 👋"
+    - text: "Пока! Береги себя!"
+
+  utter_name:
+    - text: "Я бот-помощник!"
+    - text: "Меня зовут Бот."
+    - text: "Я - ваш виртуальный ассистент."
+
+  utter_abilities:
+    - text: "Я умею отвечать на вопросы, искать информацию и выполнять команды!"
+    - text: "Мои возможности ограничены, но я могу помочь с простыми задачами."
+    - text: "Я могу помочь вам найти информацию в интернете или рассказать что-нибудь интересное."
+
+  utter_ask_city:
+    - text: "Для какого города вы хотите узнать погоду?"
+    - text: "Уточните, пожалуйста, город для прогноза погоды."
+
+  utter_ask_fact_category:
+    - text: "О какой категории вы хотите узнать факт? (спорт, история, космос)"
+    - text: "Я могу рассказать факт о спорте, истории или космосе. Что вас интересует?"
+
+actions:
+  - action_get_weather
+  - action_get_time
+  - action_tell_fact
+  - action_search_web
+  - action_calculate
+  - action_analyze_mood

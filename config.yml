@@ -1,0 +1,16 @@
+language: ru
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: DIETClassifier
+  epochs: 100
+
+policies:
+- name: TEDPolicy
+  max_history: 5
+  epochs: 100
+- name: RulePolicy
+- name: MemoizationPolicy
+assistant_id: 20250411-235717-chalky-verbiage
